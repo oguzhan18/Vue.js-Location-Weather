@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="darken">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css'>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="app" v-bind:class="timeOfDayClass" v-cloak>
+  <div id="content" v-if="loading">
+    <p>Lütfen konumu izin ver.</p>
+  </div>
+  <div id="content" v-else>
+    <div class="today">
+      <i class="today__icon wi" v-bind:class="iconClass(today.icon)" v-if="today.icon"></i>
+      <p class="today__temp">
+        <span class="current" v-if="today.temp">{{today.temp}}&deg;</span>
+        <span class="range" v-if="today.temp_low && today.temp_high">
+          <span class="range__high">{{today.temp_high}}</span>
+          <span class="range__low">{{today.temp_low}}</span>
+        </span>
+      </p>
+    </div>
+    
+    <p class="desc" v-if="today.desc">{{today.desc}}</p>
+    
+    <ul class="week">
+      <li class="day" v-bind:title="day.desc" v-for="day in week">
+        <span class="day__label">{{day.time}}</span>
+        <i class="day__icon wi" v-bind:class="iconClass(day.icon)"></i>
+        <span class="range">
+          <span class="range__high">{{day.temp_high}}</span>
+          <span class="range__low">{{day.temp_low}}</span>
+        </span>
+      </li>
+    </ul>
+    
+    <p class="location" v-if="location">
+      <i class="location__icon wi wi-raindrop wi-flip-vertical"></i>
+      <span>{{location}} ({{lat}}, {{lon}})</span>
+    </p> </div></div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script><script  src="script.js"></script>
+
+</body>
+</html>

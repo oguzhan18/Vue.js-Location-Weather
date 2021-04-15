@@ -1,0 +1,118 @@
+#app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#app.morning {
+  background-image: linear-gradient(rgba(0, 80, 160, 0.6), rgba(0, 80, 160, 0.8));
+}
+#app.afternoon {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+}
+#app.evening {
+  background-image: linear-gradient(rgba(0, 35, 71, 0.6), rgba(0, 35, 71, 0.8));
+}
+#app.night {
+  background-image: linear-gradient(rgba(0, 10, 20, 0.6), rgba(0, 10, 20, 0.8));
+}
+
+#content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2rem;
+  font-size: 1.25em;
+}
+
+.today {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.today__icon {
+  margin-right: 1rem;
+  font-size: 3.5rem;
+}
+
+.today__temp {
+  margin-top: -0.5rem;
+}
+
+.today__temp span {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.today__temp .current {
+  margin-bottom: 0.5rem;
+  font-size: 3em;
+  line-height: 1;
+}
+
+.range span {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.range .range__low {
+  opacity: 0.6;
+}
+
+.week {
+  display: flex;
+  margin: 1rem -1rem;
+}
+
+.day {
+  padding: 0.5rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 250ms ease-in-out;
+}
+.day:last-of-type {
+  border-right: none;
+}
+.day:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.day__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.day__icon {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.day .range span {
+  margin-right: 0.25rem;
+}
+
+.location {
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.6;
+}
+.location i.wi {
+  font-size: 1.4rem;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.75;
+  color: white;
+}
+
+[v-cloak] {
+  display: none;
+}
